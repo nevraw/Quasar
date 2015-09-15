@@ -25,20 +25,32 @@ function buttonHandler() {
 
 
 function loadOptions() {
+ var $bgColorPicker = $('#bgColorPicker');
  var $timeColorPicker = $('#timeColorPicker');
 
+ if (localStorage.bgColor) {
+  $bgColorPicker[0].value = localStorage.bgColor;
+ }
  if (localStorage.timeColor) {
   $timeColorPicker[0].value = localStorage.timeColor;
  }
 } 
 
 function getAndStoreConfigData() {
+ var $bgColorPicker = $('#bgColorPicker');
  var $timeColorPicker = $('#timeColorPicker');
 
+ if ($bgColorPicker == $timeColorPicker) {
+  alert('Please select different colors for time and background');
+  return
+ }
+ 
  var options = {
+  bgColor: $bgColorPicker.val(),
   timeColor: $timeColorPicker.val()
  };
  
+ localStorage.bgColor = options.bgColor;
  localStorage.timeColor = options.timeColor;
 
  console.log('Got options: ' + JSON.stringify(options));
