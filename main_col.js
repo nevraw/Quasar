@@ -42,7 +42,7 @@ function getAndStoreConfigData() {
 
 // console.log('bg: ' + $bgColorPicker.val() + ', time: ' + $timeColorPicker.val());
 
- if ($bgColorPicker == $timeColorPicker) {
+ if ($bgColorPicker.val() == $timeColorPicker.val()) {
   console.log('matching');
   alert('Please select different colors for time and background');
   return
